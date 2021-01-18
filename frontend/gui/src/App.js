@@ -1,9 +1,9 @@
-import React, {Component} from 'react';
+import React from 'react';
 import { BrowserRouter as Router} from 'react-router-dom';
 import BaseRouter from './routes';
 import CustomLayout from './containers/Layout'
 
-import logo from './logo.svg';
+// import logo from './logo.svg';
 // import './App.css';
 import 'antd/dist/antd.css';
 

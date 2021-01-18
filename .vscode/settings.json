@@ -1,3 +1,4 @@
 {
-    "python.pythonPath": "/home/rm/.virtualenvs/website/bin/python"
+    "python.pythonPath": "/home/rm/.virtualenvs/website/bin/python",
+    "python.linting.pylintPath": "/path/to/pylint",
 }
