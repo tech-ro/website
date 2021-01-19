@@ -25,7 +25,7 @@ class ArticleDetial extends React.Component {
         const articleID = this.props.match.params.articleID
         axios.delete(`http://127.0.0.1:8000/api/${articleID}`);
         this.props.history.push('/');
-        this.forceUpdate();
+        
     }
 
     render() {
@@ -35,9 +35,9 @@ class ArticleDetial extends React.Component {
                     <p>{this.state.article.content}</p>
                 </Card>
                 <br />
-                <h2>Create an Article</h2>
+                <h2>Update Article</h2>
                 <CustomForm requestType="put" articleID={this.props.match.params.articleID} btnText="Update"/>
-                <form onSubmitCapture={this.handleDelete}>
+                <form onSubmit={this.handleDelete}>
                     <Button type="danger" htmlType="submit">Delete</Button>
                 </form>
             </div>
