@@ -27,22 +27,22 @@ class CustomForm extends React.Component {
                     .catch(error => console.err(error));
 
         }
-        this.forceUpdate();
+        
     }
         
     render() {
         return (
             <div>
-                <Form onSubmitCapture={(event) => this.handleFormSubmit(event, this.props.requestType, this.props.articleID)}>
-                <Form.Item label="Title">
-                    <Input name="title" placeholder="Place title here" />
-                </Form.Item>
-                <Form.Item label="Content">
-                    <Input name="content" placeholder="Place content here" />
-                </Form.Item>
-                <Form.Item>
-                    <Button type="primary" htmlType="submit">{this.props.btnText}</Button>
-                </Form.Item>
+                <Form onSubmit={(event) => this.handleFormSubmit(event, this.props.requestType, this.props.articleID)}>
+                    <Form.Item label="Title">
+                        <Input name="title" placeholder="Place title here" />
+                    </Form.Item>
+                    <Form.Item label="Content">
+                        <Input name="content" placeholder="Place content here" />
+                    </Form.Item>
+                    <Form.Item>
+                        <Button type="primary" htmlType="submit">{this.props.btnText}</Button>
+                    </Form.Item>
                 </Form>
             </div>
         );
