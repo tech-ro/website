@@ -11,11 +11,24 @@ const CustomLayout = (props) => {
             <Header>
                 <div className="logo" />
                 <Menu theme="dark" mode="horizontal">
-                    <Menu.Item key="1">
-                        <Link to="/">Login</Link>
-                    </Menu.Item>
-                    <Menu.Item key="2">
-                        <Link to="/login">Blog</Link>
+                    
+                    {
+                        props.isAuthenticated ?
+
+                            <Menu.Item key="1">
+                                Logout
+                            </Menu.Item>
+                        
+                        :
+
+                            <Menu.Item key="1">
+                                <Link to="/login">Login</Link>
+                            </Menu.Item>
+
+                    }
+                    
+                    <Menu.Item key="3">
+                        <Link to="/">Blog</Link>
                     </Menu.Item>
                     
                     
