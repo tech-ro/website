@@ -3,12 +3,14 @@ import React from 'react';
 import {Route} from 'react-router-dom';
 import ArticleList from './containers/ArticleListView'
 import ArticleDetial from "./containers/ArticleDetailView";
-import NormalLoginForm from './containers/Login';
+import LoginForm from './containers/Login';
+import RegistrationForm from './containers/Signup';
 
 const BaseRouter = () => (
     <div>
         <Route exact path='/' component={ArticleList} />
-        <Route exact path='/login/' component={NormalLoginForm} />
+        <Route exact path='/login/' component={LoginForm} />
+        <Route exact path='/signup/' component={RegistrationForm} />
         <Route exact path='/articles/:articleID/' component={ArticleDetial} />
         
     </div>

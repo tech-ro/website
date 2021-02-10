@@ -1,41 +1,21 @@
 import React from 'react';
-import { Form, Input, Button, Checkbox, Spin } from 'antd';
+import { Form, Input, Button, Spin } from 'antd';
 import { LoadingOutlined, UserOutlined, LockOutlined } from '@ant-design/icons';
 import { connect } from 'react-redux';
 import { NavLink } from "react-router-dom";
 import * as actions from '../store/actions/auth';
 
-const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
+const loadingIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
 
 
-class NormalLoginForm extends React.Component {
-
-    // handleSubmit = (e) => {
-    //     e.preventDefault();
-    //     this.props.form.validateFields((err, values) => {
-    //         if (!err) {
-    //             this.props.onAuth(values.userName, values.password);
-    //             this.props.history.push('/');
-    //         }
-    //     });
-    // }
-
-    handleSubmit(event) {
-        event.preventDefault();
-        this.props.form.validateFields((err, values) => {
-            if (!err) {
-                // console.log('Received values of login form: ', values);
-                this.props.onAuth(values.userName, values.password);
-                // this.props.history.push('/');
-            }
-        });
-    }
+class LoginForm extends React.Component {
 
     render() {
-        
-        // const onFinish = values => {
-        //     console.log('Received values of login form: ', values);
-        // };
+        const onFinish = (values) => {
+            // console.log('Received values of form: ', values);
+            this.props.onAuth(values.userName, values.password);
+            this.props.history.push('/');
+        };        
 
         let errorMessage = null;
         if (this.props.error) {
@@ -50,7 +30,7 @@ class NormalLoginForm extends React.Component {
                 {
                     this.props.loading ?
 
-                    <Spin indicator={antIcon} />
+                    <Spin indicator={loadingIcon} />
 
                     :
 
@@ -60,11 +40,10 @@ class NormalLoginForm extends React.Component {
                         initialValues={{
                             remember: true,
                         }}
-                        // onFinish={onFinish}
-                            onSubmit={(event) => this.handleFormSubmit(event)}   
+                        onFinish={onFinish}
                     >
                         <Form.Item
-                            name="username"
+                            name="userName"
                             rules={[
                                 {
                                     required: true,
@@ -90,10 +69,6 @@ class NormalLoginForm extends React.Component {
                             />
                         </Form.Item>
                         <Form.Item>
-                            <Form.Item name="remember" valuePropName="checked" noStyle>
-                                <Checkbox>Remember me</Checkbox>
-                            </Form.Item>
-
                             <NavLink style={{ marginRight: '10px' }} to='/resetpassword/'>
                                 Forgot Password
                             </NavLink>
@@ -130,6 +105,6 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(NormalLoginForm);
+export default connect(mapStateToProps, mapDispatchToProps)(LoginForm);
 
 
