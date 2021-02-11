@@ -1,13 +1,4 @@
 {
-    "editor.formatOnSave": true,
     "python.pythonPath": "/home/rm/.virtualenvs/website/bin/python",
     "python.linting.pylintPath": "/path/to/pylint",
-    "python.linting.pylintArgs": [
-        "--load-plugins",
-        "pylint_django"
-    ],
-    "python.linting.pylintEnabled": true,
-    "python.formatting.autopep8Args": [
-        "--ignore=E501"
-    ]
 }

@@ -39,3 +39,7 @@ python manage.py migrate
 
 ## Useful Links
 [Django REST framework](https://www.django-rest-framework.org/)
+
+[Django cors headers](https://github.com/adamchainz/django-cors-headers)
+
+[Ant Design](https://ant.design/)
